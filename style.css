@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 2.5;
+    margin: 5vh 5vw;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.top,
+.middle,
+.indicators {
+    text-align: center;
+    position: relative;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    outline: none;  
+    text-align: center;
+    color: white;
+}
+
+.search-input {
+    font-size: 92px;
+    font-weight: bold;
+}
+
+.search-input::placeholder {
+    color: #323232;
+}
+
+.search-clear,
+.spinner {
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.search-clear {
+    cursor: pointer;
+}
