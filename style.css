@@ -55,7 +55,8 @@ input {
 
 
 .videos,
-.middle {
+.middle,
+.grid {
     display: grid;
     place-items: center;
 }
@@ -67,6 +68,7 @@ input {
 }
 
 .search-input,
-.videos {
+.videos,
+.full-area {
     grid-area: 1/1;
 }

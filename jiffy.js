@@ -20,7 +20,7 @@ fetch(
 		const video = createVideo(src);
 
 		const videoE1 = document.querySelector('.videos');
-		videoE1.appendChild(video);
+		// videoE1.appendChild(video);
 	})
 	.catch((error) => {
 		console.log(error);
