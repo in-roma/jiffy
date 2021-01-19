@@ -25,3 +25,8 @@ fetch(
 	.catch((error) => {
 		console.log(error);
 	});
+
+const searchInput = document.querySelector('.search-input');
+searchInput.addEventListener('keyup', () => {
+	// console.log(searchInput.value);
+});
