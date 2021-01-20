@@ -1,3 +1,5 @@
+const API_KEY = '0JctKdaZyHL8uFDTbouZjE8hTGFgLHFV';
+
 function createVideo(src) {
 	const video = document.createElement('video');
 	video.src = src;
@@ -8,23 +10,26 @@ function createVideo(src) {
 	return video;
 }
 
-fetch(
-	'https://api.giphy.com/v1/gifs/search?api_key=0JctKdaZyHL8uFDTbouZjE8hTGFgLHFV&q=love&limit=50&offset=0&rating=pg-13&lang=en'
-)
-	.then((response) => {
-		return response.json();
-	})
-	.then((json) => {
-		const gif = json.data[0];
-		const src = gif.images.original.mp4;
-		const video = createVideo(src);
+const searchGiphy = (searchInput) => {
+	fetch(
+		`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchInput}&limit=50&offset=0&rating=pg-13&lang=en`
+	)
+		.then((response) => {
+			return response.json();
+		})
+		.then((json) => {
+			console.log('this is json returned: ', json);
+			const gif = json.data[0];
+			const src = gif.images.original.mp4;
+			const video = createVideo(src);
 
-		const videoE1 = document.querySelector('.videos');
-		// videoE1.appendChild(video);
-	})
-	.catch((error) => {
-		console.log(error);
-	});
+			const videoE1 = document.querySelector('.videos');
+			videoE1.appendChild(video);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+};
 
 const searchInput = document.querySelector('.search-input');
 const searchHint = document.querySelector('.search-hint');
@@ -39,7 +44,8 @@ const search = (event) => {
 		document.body.classList.remove('show-hint');
 	}
 
-	if (event.key === 'Enter' && searchInput.nodeValue.length > 2) {
+	if (event.key === 'Enter' && input.length > 2) {
+		searchGiphy(input);
 	}
 };
 
