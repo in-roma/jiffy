@@ -27,6 +27,20 @@ fetch(
 	});
 
 const searchInput = document.querySelector('.search-input');
-searchInput.addEventListener('keyup', () => {
-	// console.log(searchInput.value);
-});
+const searchHint = document.querySelector('.search-hint');
+
+const search = (event) => {
+	const input = searchInput.value;
+
+	if (input.length > 2) {
+		document.body.classList.add('show-hint');
+		searchHint.innerHTML = 'Hit enter to search ' + input;
+	} else {
+		document.body.classList.remove('show-hint');
+	}
+
+	if (event.key === 'Enter' && searchInput.nodeValue.length > 2) {
+	}
+};
+
+searchInput.addEventListener('keyup', search);
