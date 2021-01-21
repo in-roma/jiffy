@@ -1,5 +1,10 @@
 const API_KEY = '0JctKdaZyHL8uFDTbouZjE8hTGFgLHFV';
 
+const searchInput = document.querySelector('.search-input');
+const searchHint = document.querySelector('.search-hint');
+const videoElement = document.querySelector('.videos');
+const clearElement = document.querySelector('.search-clear');
+
 const randomVideo = (arr) => {
 	const randomIndex = Math.floor(Math.random() * arr.length);
 	return arr[randomIndex];
@@ -35,9 +40,7 @@ const searchGiphy = (searchInput) => {
 			const gif = randomVideo(json.data);
 			const src = gif.images.original.mp4;
 			const video = createVideo(src);
-
-			const videoE1 = document.querySelector('.videos');
-			videoE1.appendChild(video);
+			videoElement.appendChild(video);
 
 			video.addEventListener('loadeddata', (event) => {
 				video.classList.add('visible');
@@ -50,9 +53,6 @@ const searchGiphy = (searchInput) => {
 			console.log(error);
 		});
 };
-
-const searchInput = document.querySelector('.search-input');
-const searchHint = document.querySelector('.search-hint');
 
 const search = (event) => {
 	const input = searchInput.value;
@@ -69,4 +69,13 @@ const search = (event) => {
 	}
 };
 
+const clearSearch = (event) => {
+	document.body.classList.remove('has-results');
+	videoElement.innerHTML = '';
+	searchHint.innerHTML = '';
+	searchInput.value = '';
+	searchInput.focus();
+};
+
 searchInput.addEventListener('keyup', search);
+clearElement.addEventListener('click', clearSearch);
