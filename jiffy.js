@@ -15,7 +15,16 @@ function createVideo(src) {
 	return video;
 }
 
+const toggleLoading = (state) => {
+	if (state) {
+		document.body.classList.add('loading');
+	} else {
+		document.body.classList.remove('loading');
+	}
+};
+
 const searchGiphy = (searchInput) => {
+	toggleLoading(true);
 	fetch(
 		`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchInput}&limit=50&offset=0&rating=pg-13&lang=en`
 	)
@@ -29,6 +38,7 @@ const searchGiphy = (searchInput) => {
 
 			const videoE1 = document.querySelector('.videos');
 			videoE1.appendChild(video);
+			toggleLoading(false);
 		})
 		.catch((error) => {
 			console.log(error);

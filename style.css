@@ -64,6 +64,7 @@ input {
 .video {
     grid-area: 1/1;
     max-width: 500px;
+    max-height: 500px;
     display: block;
 }
 
@@ -73,13 +74,15 @@ input {
     grid-area: 1/1;
 }
 
-.search-hint {
+.search-hint, .spinner {
     opacity: 0;
     transition: opacity 0.5s ease;
 }
 
-.show-hint .search-hint{
+.show-hint .search-hint, .loading .spinner{
     opacity: 1;
-    transition: opacity 0.5s ease;
+}
 
+.loading .search-hint {
+opacity: 0;
 }
