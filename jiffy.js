@@ -1,5 +1,10 @@
 const API_KEY = '0JctKdaZyHL8uFDTbouZjE8hTGFgLHFV';
 
+const randomVideo = (arr) => {
+	const randomIndex = Math.floor(Math.random() * arr.length);
+	return arr[randomIndex];
+};
+
 function createVideo(src) {
 	const video = document.createElement('video');
 	video.src = src;
@@ -18,8 +23,7 @@ const searchGiphy = (searchInput) => {
 			return response.json();
 		})
 		.then((json) => {
-			console.log('this is json returned: ', json);
-			const gif = json.data[0];
+			const gif = randomVideo(json.data);
 			const src = gif.images.original.mp4;
 			const video = createVideo(src);
 
