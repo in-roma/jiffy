@@ -38,7 +38,13 @@ const searchGiphy = (searchInput) => {
 
 			const videoE1 = document.querySelector('.videos');
 			videoE1.appendChild(video);
-			toggleLoading(false);
+
+			video.addEventListener('loadeddata', (event) => {
+				video.classList.add('visible');
+				toggleLoading(false);
+				document.body.classList.add('has-results');
+				searchHint.innerHTML = 'Hit enter to see more ' + input;
+			});
 		})
 		.catch((error) => {
 			console.log(error);
