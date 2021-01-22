@@ -50,7 +50,8 @@ const searchGiphy = (searchInput) => {
 			});
 		})
 		.catch((error) => {
-			console.log(error);
+			toggleLoading(false);
+			searchHint.innerHTML = 'Sorry no results was found. try again !!';
 		});
 };
 
@@ -79,3 +80,9 @@ const clearSearch = (event) => {
 
 searchInput.addEventListener('keyup', search);
 clearElement.addEventListener('click', clearSearch);
+
+document.addEventListener('keyup', (event) => {
+	if (event.key === 'Escape') {
+		clearSearch();
+	}
+});
