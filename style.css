@@ -38,6 +38,8 @@ input {
     font-weight: bold;
 }
 
+
+
 .search-input::placeholder {
     color: #323232;
 }
@@ -46,11 +48,18 @@ input {
 .spinner {
     transition: opacity 0.5s ease;
     opacity: 0;
-    pointer-events: none;
 }
 
 .search-clear {
     cursor: pointer;
+    position: relative;
+    z-index: 2;
+
+}
+
+.title {
+    position: relative;
+    z-index: 1;
 }
 
 
@@ -74,15 +83,29 @@ input {
     grid-area: 1/1;
 }
 
-.search-hint, .spinner {
-    opacity: 0;
-    transition: opacity 0.5s ease;
+.search-hint,
+.spinner {
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-.show-hint .search-hint, .loading .spinner{
-    opacity: 1;
+.show-hint .search-hint,
+.loading .spinner,
+.has-results .search-clear {
+  opacity: 1;
 }
 
-.loading .search-hint {
-opacity: 0;
+.loading .search-hint,
+.has-results .title {
+  opacity: 0;
+}
+
+.search-hint {
+    font-size: 22px;
+    font-weight: 500;
+
+}
+
+.title {
+  transition: opacity 0.5s ease;
 }
