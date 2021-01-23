@@ -46,12 +46,14 @@ const searchGiphy = (searchInput) => {
 				video.classList.add('visible');
 				toggleLoading(false);
 				document.body.classList.add('has-results');
-				searchHint.innerHTML = 'Hit enter to see more ' + input;
+				searchHint.innerHTML =
+					'Hit enter to see more "' + input + '" results';
 			});
 		})
 		.catch((error) => {
 			toggleLoading(false);
-			searchHint.innerHTML = 'Sorry no results was found. try again !!';
+			searchHint.innerHTML =
+				'Sorry no results was found for "' + input + '"';
 		});
 };
 
@@ -59,8 +61,8 @@ const search = (event) => {
 	const input = searchInput.value;
 
 	if (input.length > 2) {
+		searchHint.innerHTML = 'Hit enter to search "' + input + '"';
 		document.body.classList.add('show-hint');
-		searchHint.innerHTML = 'Hit enter to search ' + input;
 	} else {
 		document.body.classList.remove('show-hint');
 	}
@@ -78,11 +80,11 @@ const clearSearch = (event) => {
 	searchInput.focus();
 };
 
-searchInput.addEventListener('keyup', search);
-clearElement.addEventListener('click', clearSearch);
-
 document.addEventListener('keyup', (event) => {
 	if (event.key === 'Escape') {
 		clearSearch();
 	}
 });
+
+searchInput.addEventListener('keyup', search);
+clearElement.addEventListener('click', clearSearch);
