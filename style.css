@@ -4,18 +4,20 @@
 }
 
 body {
+    width: 100vw;
+    height: 80vh;
     background-color: black;
     color: white;
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 24px;
     font-weight: bold;
     line-height: 2.5;
-    /* margin: 5vh 5vw; */
-    min-height: 90vh;
+
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
+    justify-content: flex-start;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 
@@ -26,18 +28,18 @@ body {
     position: relative;
 }
 
-.top {
-    height: 96px;
-    margin-top: 48px;
+.top .grid { 
+    height: auto;
+    margin: 0;
 
 }
 
-.indicators {
-    width: 320px;
-    position: absolute;
-    bottom: 48px;
-    align-self: center;
+h1 {
+    font-size: 32px;
+    line-height:2;
+    height: auto;
 }
+
 
 input {
     background-color: transparent;
@@ -49,7 +51,7 @@ input {
 }
 
 .search-input {
-    height: 120px;
+
     font-size: 68px;
     font-weight: bold;
 }
@@ -84,14 +86,24 @@ input {
     place-items: center;
 }
 
+.middle {
+    height: 90%;
+
+}
+
 .video {
     grid-area: 1/1;
-    max-width: 44
-    0px;
-    max-height: 44
-    0px;
+    min-width: 50%;
+    min-height: 50%;
     display: block;
 }
+
+.indicators {
+    width: 320px;
+
+    align-self: center;
+}
+
 
 .search-input,
 .videos,
@@ -117,6 +129,7 @@ input {
 }
 
 .search-hint {
+
     font-size: 22px;
     font-weight: 500;
 }
