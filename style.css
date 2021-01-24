@@ -1,8 +1,9 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-/* MAIN STRUCTURE */
+/* MAIN STRUCTURE - GRID DISPLAY*/
 
 body {
     width: 100vw;
@@ -10,14 +11,9 @@ body {
     background-color: black;
     color: white;
     font-family: 'Helvetica Neue', sans-serif;
-
-    font-weight: bold;
-    line-height: 2.5;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    display: grid;
+    grid-template-columns: 16px auto 16px;
+    grid-template-rows: 16px 1fr 1fr 1fr 16px;
 }
 
 .top,
@@ -42,6 +38,12 @@ body {
 
 /* TOP */
 
+.top {
+    grid-column: 2;
+    grid-row: 2/3;
+}
+
+
 .title {
     position: relative;
     z-index: 1;
@@ -49,7 +51,8 @@ body {
 
 h1 {
     font-size: 32px;
-    line-height:2;
+    font-weight: 500;
+    line-height: 2.5;
     height: auto;
 }
 
@@ -62,9 +65,12 @@ h1 {
 /* MIDDLE */
 
 .middle {
-    height: 90%;
-
+    grid-column: 2;
+    grid-row: 3/4;
+    justify-self: center;
+    align-self: center;
 }
+
 input {
     background-color: transparent;
     border: none;
@@ -75,16 +81,16 @@ input {
 }
 
 .search-input {
-
     font-size: 68px;
-    font-weight: bold;
+    line-height: 2.5;
+    font-weight: 700;
 }
 
 
 .search-input {
     /* width: 100vw; */
     line-height: 1;
-    height: 88px;
+
 }
 
 .search-input::placeholder {
@@ -109,14 +115,14 @@ input {
 /* BOTTOM */
 
 .bottom {
-    width: 320px;
-
-    align-self: center;
+        grid-column: 2;
+        grid-row: 5/6;  
 }
-.search-hint {
 
+.search-hint {
     font-size: 22px;
     font-weight: 500;
+    line-height: 2.5;
 }
 
 
@@ -126,7 +132,6 @@ input {
 .spinner {
     transition: opacity 0.5s ease;
     opacity: 0;
-
 }
 
 .search-hint,
