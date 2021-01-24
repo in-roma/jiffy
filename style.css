@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+/* MAIN STRUCTURE */
 
 body {
     width: 100vw;
@@ -9,10 +10,9 @@ body {
     background-color: black;
     color: white;
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 24px;
+
     font-weight: bold;
     line-height: 2.5;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -20,18 +20,31 @@ body {
     padding-bottom: 5%;
 }
 
-
 .top,
 .middle,
-.indicators {
+.bottom {
     text-align: center;
     position: relative;
 }
 
-.top .grid { 
-    height: auto;
-    margin: 0;
+.videos,
+.middle,
+.grid {
+    display: grid;
+    place-items: center;
+}
 
+.search-input,
+.videos,
+.full-area {
+    grid-area: 1/1;
+}
+
+/* TOP */
+
+.title {
+    position: relative;
+    z-index: 1;
 }
 
 h1 {
@@ -40,7 +53,18 @@ h1 {
     height: auto;
 }
 
+.search-clear {
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
 
+/* MIDDLE */
+
+.middle {
+    height: 90%;
+
+}
 input {
     background-color: transparent;
     border: none;
@@ -56,39 +80,15 @@ input {
     font-weight: bold;
 }
 
+
+.search-input {
+    /* width: 100vw; */
+    line-height: 1;
+    height: 88px;
+}
+
 .search-input::placeholder {
     color: #323232;
-}
-
-.search-clear,
-.spinner {
-    transition: opacity 0.5s ease;
-    opacity: 0;
-
-}
-
-.search-clear {
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-}
-
-.title {
-    position: relative;
-    z-index: 1;
-}
-
-
-.videos,
-.middle,
-.grid {
-    display: grid;
-    place-items: center;
-}
-
-.middle {
-    height: 90%;
-
 }
 
 .video {
@@ -97,18 +97,36 @@ input {
     min-height: 50%;
     display: block;
 }
+.video {
+    width: 100%;
+}
 
-.indicators {
+.videos {
+    width: auto;
+
+}
+
+/* BOTTOM */
+
+.bottom {
     width: 320px;
 
     align-self: center;
 }
+.search-hint {
+
+    font-size: 22px;
+    font-weight: 500;
+}
 
 
-.search-input,
-.videos,
-.full-area {
-    grid-area: 1/1;
+/* ACTIVATIONS & TRANSITIONS */
+
+.search-clear,
+.spinner {
+    transition: opacity 0.5s ease;
+    opacity: 0;
+
 }
 
 .search-hint,
@@ -126,12 +144,6 @@ input {
 .loading .search-hint,
 .has-results .title {
   opacity: 0;
-}
-
-.search-hint {
-
-    font-size: 22px;
-    font-weight: 500;
 }
 
 .title {
