@@ -5,9 +5,8 @@
         padding-bottom: 10%;
         font-size: 16px;
     } */
-    .videos {
-
-    
+    .video {
+        width: 80%;
     }
     .search-input {
         font-size: 28px;
