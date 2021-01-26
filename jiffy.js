@@ -23,8 +23,11 @@ function createVideo(src) {
 const toggleLoading = (state) => {
 	if (state) {
 		document.body.classList.add('loading');
+		searchInput.disabled = true;
 	} else {
 		document.body.classList.remove('loading');
+		searchInput.disabled = false;
+		searchInput.focus();
 	}
 };
 
@@ -47,13 +50,13 @@ const searchGiphy = (searchInput) => {
 				toggleLoading(false);
 				document.body.classList.add('has-results');
 				searchHint.innerHTML =
-					'Hit enter to see more "' + input + '" results';
+					'Hit enter to see more "' + searchInput + '" results';
 			});
 		})
 		.catch((error) => {
 			toggleLoading(false);
 			searchHint.innerHTML =
-				'Sorry no results was found for "' + input + '"';
+				'Sorry no results was found for "' + searchInput + '"';
 		});
 };
 
