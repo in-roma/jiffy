@@ -1,15 +1,36 @@
-@media (max-width: 480px) {
-    /* body {
-        height: 50%;
-        padding-top: 10%;
-        padding-bottom: 10%;
-        font-size: 16px;
-    } */
+@media (max-width: 800px) {
     .video {
-        width: 80%;
+        max-width: 500px;
     }
     .search-input {
+        width: 80%;
+        font-size: 36px;
+    }
+    .search-hint {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video {
+
+        max-width: 400px;
+    }
+    .search-input {
+        width: 80%;
         font-size: 28px;
+    }
+    .search-hint {
+        font-size: 16px;
+    }
+}
+@media (max-width: 375px) {
+    .video {
+        max-width: 300px;
+    }
+    .search-input {
+        width: 80%;
+        font-size: 26px;
     }
     .search-hint {
         font-size: 18px;

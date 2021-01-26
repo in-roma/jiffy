@@ -8,49 +8,41 @@
 body {
     width: 100vw;
     height: 100vh;
-    position: absolute;
-    top: 0;
     background-color: black;
     color: white;
     font-family: 'Helvetica Neue', sans-serif;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 10vh 5vh 70vh 5vh 10vh;
-
+    grid-template-rows: 5vh 10vh 70vh 10vh 5vh;
 }
 
 .top,
 .middle,
 .bottom {
-    text-align: center;
     position: relative;
     display: grid;
-        justify-self: center;
-    align-self: center;
+    place-items: center;
 }
 
 .videos,
 .middle,
 .grid {
     display: grid;
-    /* place-items: center; */
-
+    place-items: center;
 }
 
 .search-input,
 .videos,
 .full-area {
     grid-area: 1/1;
-    place-items: center;
 }
 
 /* TOP */
 
 .top {
-    grid-column: 1;
+    grid-column: 1/1;
     grid-row: 2/3;
 }
-
 
 .title {
     position: relative;
@@ -74,9 +66,9 @@ h1 {
 
 .middle {
     height: 70vh;
-    grid-column: 1;
+    grid-column: 1/1;
     grid-row: 3/4;
-        place-items: center;
+    place-items: center;
 }
 
 input {
@@ -94,11 +86,8 @@ input {
     font-weight: 700;
 }
 
-
 .search-input {
-    /* width: 100vw; */
     line-height: 1;
-
 }
 
 .search-input::placeholder {
@@ -107,22 +96,14 @@ input {
 
 .video {
     grid-area: 1/1;
-    max-width: 500px;
+    max-width: 600px;
     display: block;
-}
-.video {
-    width: 100%;
-}
-
-.videos {
-    width: auto;
-
 }
 
 /* BOTTOM */
 
 .bottom {
-        grid-column: 1;
+        grid-column: 1/1;
         grid-row: 4/5;  
 }
 
